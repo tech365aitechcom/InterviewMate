@@ -1,0 +1,27 @@
+:root {
+  --primary-color: #2c3e50;
+  --secondary-color: #3498db;
+  --background-light: #ecf0f1;
+  --text-dark: #34495e;
+}
+
+#root {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 2rem;
+  text-align: center;
+}
+
+body {
+  font-family: "Inter", -apple-system, BlinkMacSystemFont, sans-serif;
+  background-color: var(--background-light);
+  color: var(--text-dark);
+  line-height: 1.6;
+}
+
+#playai-container {
+  text-align: center;
+  margin: 20px auto;
+  font-size: 1.2rem;
+  color: #695b5b;
+}
