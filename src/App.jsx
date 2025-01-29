@@ -1,18 +1,17 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import "./App.css";
 
 function App() {
+  const [loading, setLoading] = useState(true);
+
   useEffect(() => {
-    // Dynamically create the script element
     const script = document.createElement("script");
     script.src = "https://unpkg.com/@play-ai/agent-web-sdk";
     script.type = "text/javascript";
     script.async = true;
 
-    // Append the script to the document head
     document.head.appendChild(script);
 
-    // Execute the PlayAI function after the script loads
     script.onload = () => {
       if (window.PlayAI) {
         window.PlayAI.open("Nm0gMk5DZ-HSEQDWv8a_q");
@@ -21,18 +20,34 @@ function App() {
       }
     };
 
-    // Cleanup function to remove the script when the component unmounts
     return () => {
       document.head.removeChild(script);
     };
-  }, []); // Empty dependency array ensures this runs only once
+  }, []);
+
+  useEffect(() => {
+    const timeoutId = setTimeout(() => {
+      setLoading(false);
+    }, 1000);
+
+    return () => clearTimeout(timeoutId);
+  }, []);
 
   return (
-    <div>
-      <h1>Welcome to Your Interview Preparation</h1>
-      <div id="playai-container">
-        Tap the microphone to begin your interactive interview session.
-      </div>
+    <div className="app-container">
+      {loading ? (
+        <div className="spinner-container">
+          <div className="spinner"></div>
+          <p>Loading interview setup...</p>
+        </div>
+      ) : (
+        <>
+          <h1>Welcome to Your Interview Preparation</h1>
+          <div id="playai-container">
+            Tap the microphone to begin your interactive interview session.
+          </div>
+        </>
+      )}
     </div>
   );
 }
