@@ -250,7 +250,7 @@ const Assistant = ({ id }) => {
                 <div className="absolute inset-0 bg-gradient-to-br from-indigo-300 to-blue-300 rounded-full opacity-60"></div>
                 <div className="absolute inset-2 bg-white bg-opacity-70 rounded-full flex items-center justify-center shadow-lg">
                   <img
-                    src="../public/bot-icon.webp"
+                    src="/bot.jpg"
                     alt="AI Assistant"
                     className="w-32 h-32 rounded-full"
                   />
