@@ -1,7 +1,6 @@
 import { useCallback, useEffect, useRef, useState } from "react";
 import { Mic, MicOff, PhoneOff, Clock } from "lucide-react";
-import { toast, ToastContainer } from "react-toastify";
-import "react-toastify/dist/ReactToastify.css";
+import { toast } from "react-toastify";
 import { RealTimeAudioPlayer } from "../services/RealTimeAudioPlayer";
 import SoundWave from "./SoundWave";
 import PropTypes from "prop-types";
@@ -213,18 +212,6 @@ const Assistant = ({ id }) => {
 
   return (
     <div className="fixed inset-0 bg-black bg-opacity-60 flex items-center justify-center p-4 z-50">
-      <ToastContainer
-        position="top-right"
-        autoClose={5000}
-        hideProgressBar={false}
-        newestOnTop
-        closeOnClick
-        rtl={false}
-        pauseOnFocusLoss
-        draggable
-        pauseOnHover
-        theme="light"
-      />
       <div className="fixed inset-0 bg-black bg-opacity-60 flex items-center justify-center p-4 z-50">
         <div className="flex flex-col md:w-[500px] h-fit bg-gradient-to-br from-indigo-200 via-blue-200 to-indigo-300 rounded-3xl shadow-2xl backdrop-blur-lg">
           <header className="bg-white bg-opacity-80 backdrop-filter backdrop-blur-md shadow-md p-4 rounded-t-3xl">

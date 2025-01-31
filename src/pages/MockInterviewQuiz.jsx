@@ -9,6 +9,7 @@ import {
 } from "lucide-react";
 import { jobRoles } from "../utils";
 import Loader from "../components/Loader.jsx";
+import { toast } from "react-toastify";
 
 const openai = new OpenAI({
   apiKey: import.meta.env.VITE_OPENAI_API_KEY,
@@ -29,7 +30,6 @@ const MockInterviewQuiz = () => {
   const [value, setValue] = useState("");
   const [uniqueId, setUniqueId] = useState("");
 
-  // Existing functions remain unchanged
   const fetchQuestions = async () => {
     if (!uniqueId) {
       alert("No unique Id provided");
@@ -77,13 +77,19 @@ const MockInterviewQuiz = () => {
   const currentQuestion = questions[currentQuestionIndex];
   const progress = ((currentQuestionIndex + 1) / questions.length) * 100;
 
-  const handleModalSubmit = () => {
+  const handleModalSubmit = async () => {
     if (!selectedJobRole && !otherJobRole) {
-      alert("Please enter a job role");
+      toast.warning("Please enter a job role", {
+        position: "top-right",
+        autoClose: 5000,
+      });
       return;
     }
     if (value.length !== 3) {
-      alert("Please enter a valid 3-digit unique ID");
+      toast.warning("Please enter a valid 3-digit unique ID", {
+        position: "top-right",
+        autoClose: 5000,
+      });
       return;
     }
     setShowModal(false);
