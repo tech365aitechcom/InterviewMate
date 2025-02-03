@@ -217,7 +217,7 @@ const Assistant = ({ id }) => {
           <header className="bg-white bg-opacity-80 backdrop-filter backdrop-blur-md shadow-md p-4 rounded-t-3xl">
             <div className="container mx-auto flex justify-between items-center">
               <h1 className="text-3xl font-bold text-indigo-700 tracking-wide">
-                Play <span className="text-indigo-500">AI</span>
+                Interview <span className="text-indigo-500">Mate</span>
               </h1>
               <div className="flex items-center space-x-2">
                 <Clock size={20} className="text-indigo-600" />
